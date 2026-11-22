@@ -414,3 +414,23 @@ lixiaoxiao9888-create/manju-laoli-skill/        # V7.5.0-SLIM slim suite (155 fi
 ## V7.5.0-SLIM 稳定性能力与边界
 
 新增完整章节分页、JSON/text 统一门禁、多对白累计及 JSON 单源导出。使用单源项目时必读 `short-drama-director/references/project-bundle-contract.md`。导出仅含资产提示词与 P3CLEAN_GRID 计划；不是已生成图片，也不是已经过 P4 模型适配的投喂稿。旧示例回归和未解决项见包外交付说明，不以机检 PASS 代替语义与实拍验收。
+
+
+---
+
+## 🏙️ 个人 Fork 扩展：现代都市短剧导演引擎
+
+本 Fork 新增独立子技能 `sd-modern-drama-engine/`，用于现代都市、霸总、豪门、职场、商战与都市悬疑短剧。支持两套独立视觉模式：
+
+- `LIVE_ACTION`：真人写实影视剧
+- `3D_CG`：3D写实动画短剧
+
+扩展覆盖现代场景资产、俯视空间结构图提示词、人物站位/走位、机位覆盖、跨镜连续性和视频模型投喂交接。它与原有总控及子技能并列部署，不覆盖原有古风/玄幻能力；原项目模型契约、五道前置锁、I画风锁、M0/M1/M2、七段式投喂与质检规则保持不变。
+
+> 说明：这是 `wine2507448424-ops` 个人 Fork 的扩展，不是原作者官方版本。路由与边界见 [现代都市扩展说明](sd-modern-drama-engine/README.md)。
+
+结构自检：
+
+```bash
+python3 sd-modern-drama-engine/scripts/validate_modern_pack.py
+```
