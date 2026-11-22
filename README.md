@@ -31,9 +31,9 @@
 
 ---
 
-## 🏆 赞助商
+## 🏆 合作与鸣谢
 
-感谢以下赞助商对本项目的支持：
+本 Fork 独立维护；上游原项目的赞助、推广和商业合作信息不构成本项目背书。
 
 | LOGO | 类型 | 赞助商名称 | 说明 | 网站 |
 | --- | --- | --- | --- | --- |
@@ -59,7 +59,7 @@
 
 ## 🧭 这是什么
 
-一套 **给 AI 助手执行的 AIGC 全流程创作规则库**（OpenClaw Skill / Agent 技能包）。**自多技能套装版起升级为「多技能套装」**：**1 个总控**（`short-drama-director`）+ **10 个子技能**（`sd-*-engine`），**四层纵深架构**——不是单一 `SKILL.md`，而是一套可路由、可挂载、可机检的导演系统。
+一套 **给 AI 助手执行的 AIGC 全流程创作规则库**（OpenClaw Skill / Agent 技能包）。**自多技能套装版起升级为「多技能套装」**：**1 个总控**（`short-drama-director`）+ **11 个子技能**（`sd-*-engine`），**四层纵深架构**——不是单一 `SKILL.md`，而是一套可路由、可挂载、可机检的导演系统。
 
 > **核心理念**：「**用户看到的是 5 个步骤，AI 内部跑的是 100 条规则**」——用户层只做「① 做什么 ② 从哪来 ③ 模型 ④ 画幅 ⑤ 要什么结果」，**锁 / 路由 / 子技能挂载 / 机检全部由总控内部完成**，用户**不需要手动调用任何子技能**（直接说需求，总控自动路由；但五道锁必须弹出让用户勾选）。
 
@@ -81,7 +81,7 @@
 - **情绪戏 / 微表情专项**（FACS 表情工程）
 - 任何需要**跨镜头角色一致性**的 AI 视频生产
 
-## 🧩 四层纵深架构（1 总控 + 10 子技能）
+## 🧩 四层纵深架构（1 总控 + 11 子技能）
 
 | 层 | 技能 | 职责 |
 |:---:|:---|:---|
@@ -254,7 +254,7 @@ Genre-agnostic: anything that goes **script → storyboard → video-model feed*
 - **Emotional & micro-expression work** (FACS expression engineering)
 - Any AI video production needing **cross-shot character consistency**
 
-## 🧩 Four-Layer Architecture (1 router + 10 sub-skills)
+## 🧩 Four-Layer Architecture (1 router + 11 sub-skills)
 
 | Layer | Skill | Role |
 |:---:|:---|:---|
