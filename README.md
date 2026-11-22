@@ -1,23 +1,23 @@
 <div align="center">
 
-# 🎬 漫剧老李 AIGC 创作全流程 Skill
+# 🎬 AI短剧导演工作流 · AI Short Drama Director Workflow
 
 ## **V7.5.0-SLIM 精简套装版** · Short-Drama Director Suite
 
 > **版本**：V7.5.0-SLIM 精简套装版（Suite）· 在全量版基础上**删去海外剧剧本（sd-overseas-engine）与解说叙事（sd-jieshuo-engine）两条赛道及〇·0 赛道分流锁**，其余判据一条未改。改动与验收记录见 [`short-drama-director/CHANGELOG.md`](short-drama-director/CHANGELOG.md)。
 
-> 🎨 面向 **AIGC 视听创作** 的工业级全流程技能包（**1 总控 + 10 子技能 · 四层纵深**）
+> 🎨 面向 **AIGC 视听创作** 的工业级全流程技能包（**1 总控 + 11 子技能 · 四层纵深**）
 > 从创意立项、剧本、资产、分镜到视频模型投喂提示词与独立质检 —— 给 AI 助手 / LLM 直接调用
 
 ![Version](https://img.shields.io/badge/版本-V7.5.0--SLIM-6a5acd)
-![Structure](https://img.shields.io/badge/结构-1%20总控%20%7C%2010%20子技能-8e44ad)
+![Structure](https://img.shields.io/badge/结构-1%20总控%20%7C%2011%20子技能-8e44ad)
 ![Rulebooks](https://img.shields.io/badge/规则库-48%20份-00b4d8)
 ![Files](https://img.shields.io/badge/文件-155-2ec4b6)
 ![Models](https://img.shields.io/badge/模型-Seedance%202.5%20%7C%202.0-9d4edd)
 ![QC](https://img.shields.io/badge/机检-C1~C41-ff6b6b)
 ![Platform](https://img.shields.io/badge/平台-OpenClaw%20%7C%20Coze%20%7C%20Dify%20%7C%20WorkBuddy-ff9f43)
 ![License](https://img.shields.io/badge/License-MIT-ffca3a)
-![Stars](https://img.shields.io/github/stars/lixiaoxiao9888-create/manju-laoli-skill?style=social)
+![Stars](https://img.shields.io/github/stars/lixiaoxiao9888-create/ai-short-drama-workflow?style=social)
 
 ---
 
@@ -38,7 +38,7 @@
 | LOGO | 类型 | 赞助商名称 | 说明 | 网站 |
 | --- | --- | --- | --- | --- |
 | <img src="assets/omniboard.jpg" alt="OmniBoard" width="160"> | 企业 | OmniBoard | 字字动画推出专业漫剧创作工具，从剧本到发行变现全渠道一站式，年卡 Seedance 2.5 低至 0.19/秒 | [omniboard.tv/register?ref=GITHUBADD7DZ](https://omniboard.tv/register?ref=GITHUBADD7DZ) |
-| <img src="assets/himadrama.png" alt="浮瑞万相AI" width="160"> | 企业 | 浮瑞万相AI | 浮瑞万相AI旗下喜马抓马 AI 视听全链路综合服务平台，HimaStudio 多模态 AI 视听创作平台及线上 OPC 社区 · 深度适配漫剧老李 Skill | [himadrama.com](https://www.himadrama.com) |
+| <img src="assets/himadrama.png" alt="浮瑞万相AI" width="160"> | 企业 | 浮瑞万相AI | 浮瑞万相AI旗下喜马抓马 AI 视听全链路综合服务平台，HimaStudio 多模态 AI 视听创作平台及线上 OPC 社区 · 深度适配AI短剧导演工作流 Skill | [himadrama.com](https://www.himadrama.com) |
 | <img src="assets/dianzhong.png" alt="点众" width="160"> | 企业 | 点众 | 开放全 IP 库，超创与公司自制权限相同，可看到典藏版、爆款剧、精品剧的 IP | [点众开放 IP 库](https://vcnti1p0lovd.feishu.cn/wiki/W3zvwKqzJiVRDqkvooEckIZgnFh) |
 | *（LOGO 占位）* | — | 虚位以待 | 赞助位开放中——让你的产品出现在众多 AI 短剧创作者面前 | [联系我们](mailto:lixiaoxiao9888@gmail.com) |
 
@@ -87,7 +87,7 @@
 |:---:|:---|:---|
 | **L0 总控** | `short-drama-director` | 素材来源 · **素材形态 M0/M1/M2** · 锁系统 · **48 份规则库**（含 style-bible 画风锁知识库 8 份）· 七段式 · 机检 **C1~C26**（另设增量主码 C27~C41）· P0~P2 门禁 · ★场面调度 · ★素材形态与接线单 |
 | **L1 决策** | `sd-decision-engine` | 情境映射 E01~E15 + 80/15/5 权重 + 情绪锚点表 + 构图雷区 A/B 双态白名单——回答「这场戏该用什么镜头」 |
-| **L2 生产** | `sd-recon-engine` | 素材采风与对标情报（只交付《对标情报卡》，不做打分 / 聚簇 / 台账 / 定时抓取） |
+| **L2 题材扩展** | `sd-modern-drama-engine` | 现代都市/霸总/豪门/职场/商战/都市悬疑；真人写实与 3D_CG 双视觉模式、现代场景空间图、站位走位与机位覆盖 |\n| **L2 生产** | `sd-recon-engine` | 素材采风与对标情报（只交付《对标情报卡》，不做打分 / 聚簇 / 台账 / 定时抓取） |
 | | `sd-script-engine` | 剧本创作与小说改编（六阶段编剧链 + 五席圆桌审核 + 台词七维诊断 + 拟人化引擎 + 外来剧本润色层） |
 | | `sd-asset-engine` | 资产锁定（三清单 · 场景连续性 · 道具单实例锁 · 人群调度 · 按素材形态产出 + 接线单） |
 | | `sd-storyboard-engine` | 文戏/日常戏分镜（★故事板图·面板链 · 剧情分镜格 · 段内衔接 5 维 / 运镜 5 模式） |
@@ -173,7 +173,7 @@ python3 short-drama-director/scripts/build_board_lite.py <项目.md>
 ## 📦 项目结构
 
 ```
-lixiaoxiao9888-create/manju-laoli-skill/        # V7.5.0-SLIM 精简套装（155 文件）
+lixiaoxiao9888-create/ai-short-drama-workflow/        # V7.5.0-SLIM 精简套装（155 文件）
 ├── README.md                                   # 本落地页（中文 + English）
 ├── LICENSE / .gitignore
 ├── short-drama-director/                       # L0 总控（68 文件 · 48 份规则库 · 机检脚本）
@@ -200,7 +200,7 @@ lixiaoxiao9888-create/manju-laoli-skill/        # V7.5.0-SLIM 精简套装（155
 - **V7.5.0-SLIM 精简版**（本轮）— **瘦身**：删去海外剧剧本（`sd-overseas-engine`）与解说叙事（`sd-jieshuo-engine`）两个子技能、赛道分流唯一权威文件（原 `references/` 下，已删）、〇·0 赛道分流锁，子技能 **12 → 10**、六道锁 → **五道锁**；判据体系一条未改（详见 `CHANGELOG.md` 沿革）。
 - **历史补丁 V7.4.26 P14**（2026-11-03，`CHANGELOG.md` 存档）— **案例示例整体剔除 + 判据级去重 + 文档瘦身**：删除全部成稿示例（4 份示例文件 + 30 余处正文示范段 + 填写示例），只留规则、公式与反例约束；`gate_check.py` 与 `validate_prompt.py` 的重复判据合并为单一实现（同一语气位/镜长/七段缺栏不再查两遍），出稿质检从三跑变一跑；README / CHANGELOG / 补丁说明全部精简。
 - **V7.4.26 补丁 P13 及更早** — 见 [`short-drama-director/CHANGELOG.md`](short-drama-director/CHANGELOG.md)（V7.4.26 系列全文保留，更早版本压成一行摘要表）。
-- 旧版归档：[**manju-laoli-skill-legacy**](https://github.com/lixiaoxiao9888-create/manju-laoli-skill-legacy)
+- 旧版归档：[**ai-short-drama-workflow-legacy**](https://github.com/lixiaoxiao9888-create/ai-short-drama-workflow-legacy)
 
 ---
 
@@ -232,7 +232,7 @@ lixiaoxiao9888-create/manju-laoli-skill/        # V7.5.0-SLIM 精简套装（155
 
 ## 🧭 What This Is
 
-An **AIGC creation rulebase for AI agents** (OpenClaw Skill / Agent skill package). **It is a multi-skill suite — 1 router** (`short-drama-director`) **+ 10 sub-skills** (`sd-*-engine`) **across four layers.**
+An **AIGC creation rulebase for AI agents** (OpenClaw Skill / Agent skill package). **It is a multi-skill suite — 1 router** (`short-drama-director`) **+ 11 sub-skills** (`sd-*-engine`) **across four layers.**
 
 > **Core idea:** "**The user sees 5 steps; the AI runs 100 rules.**" The user only decides ① what to make ② where it comes from ③ model ④ aspect ratio ⑤ desired output — locks, routing, sub-skill mounting, and linting are all handled internally. Sub-skills are never called by hand.
 
@@ -338,7 +338,7 @@ python3 short-drama-director/scripts/build_board_lite.py <project.md>
 ## 📦 Structure
 
 ```
-lixiaoxiao9888-create/manju-laoli-skill/        # V7.5.0-SLIM slim suite (155 files)
+lixiaoxiao9888-create/ai-short-drama-workflow/        # V7.5.0-SLIM slim suite (155 files)
 ├── README.md                                   # landing (Chinese + English)
 ├── LICENSE / .gitignore
 ├── short-drama-director/                       # L0 router (68 files · 48 rulebooks · lint scripts)
@@ -361,7 +361,7 @@ lixiaoxiao9888-create/manju-laoli-skill/        # V7.5.0-SLIM slim suite (155 fi
 - **V7.5.0-SLIM** — **slim build**: overseas-drama and explainer-narration tracks **removed** (2 engines + track-routing authority + 〇·0 routing lock), leaving 1 router + 10 sub-skills; all criteria unchanged. Details (历史沿革) in `CHANGELOG.md`.
 - **历史 patch V7.4.26 P14** (2026-11-03, archived in `CHANGELOG.md`) — **all worked examples removed + criteria de-duplicated + docs slimmed**: every full-length sample script, inline demo block and fill-in example is gone (rules, formulas and counter-examples stay); duplicated checks in `gate_check.py` vs `validate_prompt.py` merged into a single implementation, so shipping a script now needs one check run instead of three; README / CHANGELOG / patch notes compacted.
 - **V7.4.26 patch P13 and earlier** — see [`short-drama-director/CHANGELOG.md`](short-drama-director/CHANGELOG.md).
-- Legacy archive: [**manju-laoli-skill-legacy**](https://github.com/lixiaoxiao9888-create/manju-laoli-skill-legacy)
+- Legacy archive: [**ai-short-drama-workflow-legacy**](https://github.com/lixiaoxiao9888-create/ai-short-drama-workflow-legacy)
 
 ---
 
