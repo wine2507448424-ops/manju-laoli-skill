@@ -28,7 +28,7 @@ version: "7.5.0-SLIM"
 
 1. **锁系统**：A·模型版本（Seedance 2.5 / 2.0 二选一）、B·画幅、C·交付形态、D·段缝衔接——唯一权威在总控 short-drama-director SKILL.md 〇节，**按总控锁系统执行**，本技能不重复定义、不另立标准。
 2. **规格权威不在本技能**：机位角度/焦段/运镜的**具体写法规格**以总控 `short-drama-director/references/camera-specs-15rules.md` 与 `sd-storyboard-engine/references/short-drama-camera-system.md` 为唯一权威。本技能只输出"**选什么**"，不输出"**怎么写**"。冲突时**一律以规格权威为准**。
-3. **下游交接**：本技能的输出（情境 ID + 核心组合 + 锚点表）作为 `sd-storyboard-engine`（文戏）与 `sd-combat-engine` / `sd-xuanhuan-engine` / `sd-real-engine`（打戏）的**设计输入依据**。
+3. **下游交接**：本技能的输出（情境 ID + 核心组合 + 锚点表）作为 `sd-storyboard-engine`（文戏）与 `sd-combat-engine` / `sd-real-engine`（动作戏）的**设计输入依据**。
 4. **投喂格式权威**：本技能不产出投喂提示词，不涉七段式格式。投喂封装由总控 `short-drama-director/references/model-adapters.md`（七段式）负责。
 5. **机检门禁**：本技能输出**不直接参与机检**（机检针对投喂稿）；但分镜层须核对"锚点表落实率"，作为本技能输出的验收口径。
 6. **资产编号**：引用沿用总控「图N」体系，禁用任何外部包英文编号前缀。
