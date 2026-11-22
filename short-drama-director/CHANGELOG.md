@@ -21,7 +21,7 @@
 ### 二、结构级改动
 
 1. **〇·0 赛道强制分流锁整道移除**：六道前置锁 → **五道前置锁（〇·1 素材来源 / A 模型 / B 画幅 / C 交付 / D 段缝）+ I 画风锁**。锁编号沿用 〇·1（不重排），全包「〇·1 素材来源」引用保持有效。
-2. **子技能 12 → 10**：L2 生产层由 9 个降为 7 个（recon / script / asset / storyboard / combat / xuanhuan / real）。
+2. **子技能 12 → 10**：L2 生产层由 9 个降为 7 个（recon / script / asset / storyboard / combat / legacy-fantasy / real）。
 3. **规则库 49 → 48 份**（40 顶层 + style-bible 8）。
 4. **机检去解说专线**：`validate_prompt.py` 移除 `--track 1|2|3|4`、`NARR_TRACKS`、`is_narr` 分流、C14 三项 WARN 豁免、C14n 旁白-画面映射判据；C14 恢复为剧情口径单一实现。**子检查码 105 → 104 条**。
 5. **切片器去赛道维**：`slice_context.py` 移除 `--track`，必读清单不再按赛道挂载海外/解说库。
