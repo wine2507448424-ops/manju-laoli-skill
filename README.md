@@ -2,9 +2,9 @@
 
 # 🎬 AI短剧导演工作流 · AI Short Drama Director Workflow
 
-## **V7.5.0-SLIM 精简套装版** · Short-Drama Director Suite
+## **V7.6.0 精简套装版** · Short-Drama Director Suite
 
-> **版本**：V7.5.0-SLIM 精简套装版（Suite）· 在全量版基础上**删去海外剧剧本（sd-overseas-engine）与解说叙事（sd-jieshuo-engine）两条赛道及〇·0 赛道分流锁**，其余判据一条未改。改动与验收记录见 [`short-drama-director/CHANGELOG.md`](short-drama-director/CHANGELOG.md)。
+> **版本**：V7.6.0 精简套装版（Suite）· 在全量版基础上**删去海外剧剧本（sd-overseas-engine）与解说叙事（sd-jieshuo-engine）两条赛道及〇·0 赛道分流锁**，其余判据一条未改。改动与验收记录见 [`short-drama-director/CHANGELOG.md`](short-drama-director/CHANGELOG.md)。
 
 > 🎨 面向 **AIGC 视听创作** 的工业级全流程技能包（**1 总控 + 11 子技能 · 四层纵深**）
 > 从创意立项、剧本、资产、分镜到视频模型投喂提示词与独立质检 —— 给 AI 助手 / LLM 直接调用
@@ -173,7 +173,7 @@ python3 short-drama-director/scripts/build_board_lite.py <项目.md>
 ## 📦 项目结构
 
 ```
-lixiaoxiao9888-create/ai-short-drama-workflow/        # V7.5.0-SLIM 精简套装（155 文件）
+lixiaoxiao9888-create/ai-short-drama-workflow/        # V7.6.0 精简套装（155 文件）
 ├── README.md                                   # 本落地页（中文 + English）
 ├── LICENSE / .gitignore
 ├── short-drama-director/                       # L0 总控（68 文件 · 48 份规则库 · 机检脚本）
@@ -197,7 +197,7 @@ lixiaoxiao9888-create/ai-short-drama-workflow/        # V7.5.0-SLIM 精简套装
 
 ## 📜 更新历史
 
-- **V7.5.0-SLIM 精简版**（本轮）— **瘦身**：删去海外剧剧本（`sd-overseas-engine`）与解说叙事（`sd-jieshuo-engine`）两个子技能、赛道分流唯一权威文件（原 `references/` 下，已删）、〇·0 赛道分流锁，子技能 **12 → 10**、六道锁 → **五道锁**；判据体系一条未改（详见 `CHANGELOG.md` 沿革）。
+- **V7.6.0 精简版**（本轮）— **瘦身**：删去海外剧剧本（`sd-overseas-engine`）与解说叙事（`sd-jieshuo-engine`）两个子技能、赛道分流唯一权威文件（原 `references/` 下，已删）、〇·0 赛道分流锁，子技能 **12 → 10**、六道锁 → **五道锁**；判据体系一条未改（详见 `CHANGELOG.md` 沿革）。
 - **历史补丁 V7.4.26 P14**（2026-11-03，`CHANGELOG.md` 存档）— **案例示例整体剔除 + 判据级去重 + 文档瘦身**：删除全部成稿示例（4 份示例文件 + 30 余处正文示范段 + 填写示例），只留规则、公式与反例约束；`gate_check.py` 与 `validate_prompt.py` 的重复判据合并为单一实现（同一语气位/镜长/七段缺栏不再查两遍），出稿质检从三跑变一跑；README / CHANGELOG / 补丁说明全部精简。
 - **V7.4.26 补丁 P13 及更早** — 见 [`short-drama-director/CHANGELOG.md`](short-drama-director/CHANGELOG.md)（V7.4.26 系列全文保留，更早版本压成一行摘要表）。
 - 旧版归档：[**ai-short-drama-workflow-legacy**](https://github.com/lixiaoxiao9888-create/ai-short-drama-workflow-legacy)
@@ -210,7 +210,7 @@ lixiaoxiao9888-create/ai-short-drama-workflow/        # V7.5.0-SLIM 精简套装
 
 # 🇬🇧 English Overview
 
-## **V7.5.0-SLIM Slim Suite** · Short-Drama Director Suite
+## **V7.6.0 Slim Suite** · Short-Drama Director Suite
 
 **An industrial, full-pipeline creation skill package for AIGC audiovisual works — from concept lock-in to video-model feed prompts — built for AI agents / LLMs to call directly. One router + 12 sub-skills across a four-layer architecture.**
 
@@ -338,7 +338,7 @@ python3 short-drama-director/scripts/build_board_lite.py <project.md>
 ## 📦 Structure
 
 ```
-lixiaoxiao9888-create/ai-short-drama-workflow/        # V7.5.0-SLIM slim suite (155 files)
+lixiaoxiao9888-create/ai-short-drama-workflow/        # V7.6.0 slim suite (155 files)
 ├── README.md                                   # landing (Chinese + English)
 ├── LICENSE / .gitignore
 ├── short-drama-director/                       # L0 router (68 files · 48 rulebooks · lint scripts)
@@ -358,7 +358,7 @@ lixiaoxiao9888-create/ai-short-drama-workflow/        # V7.5.0-SLIM slim suite (
 
 ## 📜 Changelog
 
-- **V7.5.0-SLIM** — **slim build**: overseas-drama and explainer-narration tracks **removed** (2 engines + track-routing authority + 〇·0 routing lock), leaving 1 router + 10 sub-skills; all criteria unchanged. Details (历史沿革) in `CHANGELOG.md`.
+- **V7.6.0** — **slim build**: overseas-drama and explainer-narration tracks **removed** (2 engines + track-routing authority + 〇·0 routing lock), leaving 1 router + 10 sub-skills; all criteria unchanged. Details (历史沿革) in `CHANGELOG.md`.
 - **历史 patch V7.4.26 P14** (2026-11-03, archived in `CHANGELOG.md`) — **all worked examples removed + criteria de-duplicated + docs slimmed**: every full-length sample script, inline demo block and fill-in example is gone (rules, formulas and counter-examples stay); duplicated checks in `gate_check.py` vs `validate_prompt.py` merged into a single implementation, so shipping a script now needs one check run instead of three; README / CHANGELOG / patch notes compacted.
 - **V7.4.26 patch P13 and earlier** — see [`short-drama-director/CHANGELOG.md`](short-drama-director/CHANGELOG.md).
 - Legacy archive: [**ai-short-drama-workflow-legacy**](https://github.com/lixiaoxiao9888-create/ai-short-drama-workflow-legacy)
@@ -411,7 +411,7 @@ lixiaoxiao9888-create/ai-short-drama-workflow/        # V7.5.0-SLIM slim suite (
 </table>
 
 
-## V7.5.0-SLIM 稳定性能力与边界
+## V7.6.0 稳定性能力与边界
 
 新增完整章节分页、JSON/text 统一门禁、多对白累计及 JSON 单源导出。使用单源项目时必读 `short-drama-director/references/project-bundle-contract.md`。导出仅含资产提示词与 P3CLEAN_GRID 计划；不是已生成图片，也不是已经过 P4 模型适配的投喂稿。旧示例回归和未解决项见包外交付说明，不以机检 PASS 代替语义与实拍验收。
 
