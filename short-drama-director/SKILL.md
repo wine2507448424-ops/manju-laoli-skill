@@ -1,14 +1,14 @@
 ---
-name: short-drama-director
+name: ai-short-drama-workflow
 version: "7.5.0-SLIM"
-description: "【漫剧老李AIGC 全流程Skill · V7.5.0-SLIM 精简套装版】抖音/红果爆款短剧与漫剧的工业化编剧＋视听导演系统（1 总控 + 10 子技能 · 四层纵深）。走通 剧本开发 → 分镜 → 资产提示词 → 打戏 → 投喂稿 → 出稿质检 全链路，产出可直接投喂 Seedance 2.5 / 2.0 的视频提示词组（模型版本强制锁定）。⚠️ 动手前五道前置锁（① 素材来源 ② 模型版本 ③ 画幅 ④ 交付形态 ⑤ 段缝衔接）＋ 画风锁：任何一道未指定时，必须停下询问用户并把选项摆出来让他勾，禁止默认跳过、禁止替用户推断——这是硬门，不是建议；另含动作强度三档定档。触发场景：写短剧剧本、小说改编、分集大纲、分镜脚本、九宫格场景图与人物立绘提示词、打戏分镜、方言配音标注、投喂稿生成与出稿自检。用户直接说需求即可，总控自动路由到子技能，无需了解分工（但锁必须问）。"
+description: "【AI短剧导演工作流 · V7.6.0 精简套装版】抖音/红果爆款短剧与漫剧的工业化编剧＋视听导演系统（1 总控 + 10 子技能 · 四层纵深）。走通 剧本开发 → 分镜 → 资产提示词 → 打戏 → 投喂稿 → 出稿质检 全链路，产出可直接投喂 Seedance 2.5 / 2.0 的视频提示词组（模型版本强制锁定）。⚠️ 动手前五道前置锁（① 素材来源 ② 模型版本 ③ 画幅 ④ 交付形态 ⑤ 段缝衔接）＋ 画风锁：任何一道未指定时，必须停下询问用户并把选项摆出来让他勾，禁止默认跳过、禁止替用户推断——这是硬门，不是建议；另含动作强度三档定档。触发场景：写短剧剧本、小说改编、分集大纲、分镜脚本、九宫格场景图与人物立绘提示词、打戏分镜、方言配音标注、投喂稿生成与出稿自检。用户直接说需求即可，总控自动路由到子技能，无需了解分工（但锁必须问）。"
 ---
 
-# 漫剧老李 AIGC 全流程 Skill · V7.5.0-SLIM 精简套装版（四层纵深架构 · 全平台与多模型工业级导演系统 · Short-Drama Director Suite）
+# AI短剧导演工作流 · AI Short Drama Director Workflow
 
-版本：V7.5.0-SLIM 精简套装版（Suite）· **现行唯一版本口径**（本份 = **全量版 − 海外剧赛道 − 解说叙事赛道 − 〇·0 赛道分流锁**，沿革见 `CHANGELOG.md`）。
+版本：V7.6.0 精简套装版（Suite）· **现行唯一版本口径**（本份 = **全量版 − 海外剧赛道 − 解说叙事赛道 − 〇·0 赛道分流锁**，沿革见 `CHANGELOG.md`）。
 
-> **V7.5.0-SLIM 只做减法，不改任何判据**：删除子技能 `sd-overseas-engine`（海外剧剧本）与 `sd-jieshuo-engine`（解说叙事剧本）、删除赛道分流唯一权威 `track-routing.md`（原 references 下）、**〇·0 赛道强制分流锁整道移除**（六道前置锁 → 五道前置锁 + I 画风锁），凡涉及海外剧 / 解说叙事的规则、路由、强制读取清单、机检豁免（`--track` / C14n）与索引一并清除。**模型层口径不变：Seedance 2.5 / Seedance 2.0 二选一（A 锁），包内无其他模型板块。** 减法逐条记录见 `CHANGELOG.md`。
+> **V7.6.0 只做减法，不改任何判据**：删除子技能 `sd-overseas-engine`（海外剧剧本）与 `sd-jieshuo-engine`（解说叙事剧本）、删除赛道分流唯一权威 `track-routing.md`（原 references 下）、**〇·0 赛道强制分流锁整道移除**（六道前置锁 → 五道前置锁 + I 画风锁），凡涉及海外剧 / 解说叙事的规则、路由、强制读取清单、机检豁免（`--track` / C14n）与索引一并清除。**模型层口径不变：Seedance 2.5 / Seedance 2.0 二选一（A 锁），包内无其他模型板块。** 减法逐条记录见 `CHANGELOG.md`。
 
 ### 上一版补丁 P14 摘要（历史 · 判据未变）
 
@@ -18,7 +18,7 @@ description: "【漫剧老李AIGC 全流程Skill · V7.5.0-SLIM 精简套装版�
 
 - **五道前置锁 + I 画风锁（★ 全部必须弹出让用户选 · 2026-10-13 用户裁定）**：〇·1 素材来源（① 原创 / ② 改编 / ③ 对标爆款 / ④ 热点速成）→ A 模型版本（① Seedance 2.5 / ② Seedance 2.0，二选一）→ B 画幅（16:9 / 9:16 / 21:9）→ **C 交付形态（① 离线看板 / ② md / ③ 两者都交付 · 强制锁）**→ **D 段缝衔接方式（多段任务四选一：① 末帧定格承接〔尾帧锚定法〕 / ② 换机位硬切 / ③ 空镜过渡 / ④ 技巧型转场 · 必须逐项独立弹出，禁止合并为①+②）**→ **I 画风锁（导演风格 · 必弹卡锁：必须推送候选卡让用户在卡上勾选，卡内含「按你的推荐走」一项；选定即冻结）**。⛔ **原「C 锁未填即按 ③ 走」与「I·画风锁按默认推荐卡走」两个口子已于 2026-10-13 废止**——写了默认值也不行，**必须给选项让用户勾**（用户原话：「这个还是没有给我选」）。
 - **素材形态（M 轴 · 与锁系统正交）**：**本包不持有图**——图由用户在外部平台生成并持有。三档：**M0 纯提示词** / **M1 编号占位（默认）** / **M2 已入库**；**每次交付首行必须声明形态**。**四铁律：不索要图片 · 不因缺图阻塞 · 不写不存在的图号、不声称已核验而实际未核验 · 每次声明形态**。权威 = `references/asset-delivery-modes.md`。
-- **四层纵深**：L0 总控 `short-drama-director` → L1 决策层 `sd-decision-engine` → L2 生产层（`sd-recon-engine` / `sd-script-engine` / `sd-asset-engine` / `sd-storyboard-engine` / `sd-combat-engine` / `sd-xuanhuan-engine` / `sd-real-engine`，共 7 个）→ L3 交付层（`sd-feed-engine` / `sd-qc-engine`）。
+
 - **共享权威**：锁系统〇节、**素材形态 `references/asset-delivery-modes.md`**、七段式 `model-adapters.md` §5、**画风锁知识库 `references/style-bible/`（方案通称 F 锁）**、**场面调度 `references/blocking-direction.md`**、**成片穿帮防治 `references/blooper-prevention-playbook.md`**、**群像行为调度 `short-drama-director/references/crowd-behavior-direction.md`（★ P7 新增 · 群像行为层唯一权威）**、**故事板图 `sd-storyboard-engine/references/storyboard-sheet-template.md`**、**剧情分镜格（推演宫格 · 条件必出）`sd-storyboard-engine/references/plot-deduction-grid.md`**、**预演故事板（P4.5 · 交付附件 · 只出提示词不出图）`sd-storyboard-engine/references/p45-previs-storyboard.md`**、**48 份规则库（含 style-bible 画风锁知识库 8 份）**、`scripts/` 机检全家桶（`validate_prompt.py` C1~C26，**含增量主码 C27a~d 对话戏节奏与台词密度下限 / C28a~c 台词机械化探测 / C29 资产状态偏离 / C30a~d 外挂指纹与跨阶段交接探针 / C31 交付契约门 / C32 画面段最低三要素 / C33 焦段 / C34 资产段 / C35 多人物镜层次 / C36 连续动作 / C37 背景多人同动 / C38 段间桥接 / C39 竖屏空镜 / **C40 群像行为缺失（条件触发 · C25b 的正面对偶）**（编号不重排）**；`style-lock-ladder.py` / `style-lock-recommend.py` 画风锁引擎；`check_package.py` 包级自检；`sd-feed-engine/scripts/gate_check.py` 投喂层闸门含素材形态一致性）。**权威归属表见 §一「现行规则域总览 · 唯一权威归属表」**。子技能路由表见「五、多技能套装路由」。
 
 > ⚠️ **④ 的病灶与修法（务必理解，否则会改回去）**：「资产图册＝唯一事实来源」与「无图不进分镜」＋ 本包自身「默认只出提示词、不调出图工具」铁律——**三者并存 → 执行者要么卡死、要么假装通过**。而**用户的真实工作流是「拿提示词去平台自己跑图、图不回传」**——「图」这个实体从不进入本包上下文。**因此「图片入库」从「前置阻塞条件」降级为「可选的登记动作」**，并设 M0/M1/M2 三形态与《素材接线单》作为其正向替代物。
@@ -40,7 +40,7 @@ description: "【漫剧老李AIGC 全流程Skill · V7.5.0-SLIM 精简套装版�
 
 总控会按管线自动跑完：**素材来源（〇·1）→ 决策（情境锚点）→ 剧本 → 资产 → 调度（站位/权力几何/节拍）→ 分镜 + 故事板图（打戏自动判档）→ 投喂封装 → 质检（P14 一跑到底：投喂层闸门 ＋ C 系机检 ＋ 契约核销，同一判据不重复查）→ 看板（**交付标配：默认另附一份《预演故事板》md · 只出提示词不出图**）**，中途按需向你确认锁与关键节点，**一次对话交付成品**。
 
-**⛔ 用户不需要知道、也不需要手动调用任何子技能。** 下列 10 个子技能（sd-decision-engine / sd-recon-engine / sd-script-engine / sd-asset-engine / sd-storyboard-engine / sd-combat-engine / sd-xuanhuan-engine / sd-real-engine / sd-feed-engine / sd-qc-engine）是**总控的内部专业分工**——拆开只是为了让每块领域规则独立、清晰、互不污染（也让"只要打戏模块"或"只要音乐模块"的人能单独拿走那个包）。**全流程用户：只说需求，其余交给总控。** 子技能既不会要求你手动切换，也不会额外增加操作步骤。
+
 
 > ⚠️ **执行者必读（这是给 AI 助手看的，不是给用户看的）**：「用户不需要手动调用子技能」**不等于**「总控可以跳过子技能」。子技能里的**固定模板与执行序列是硬规则**——不读＝没有。每个阶段**必须按下节【强制读取清单】显式读取对应子技能文件**，再动手写产物。**禁止仅凭总控 memory 里的印象"代言"子技能**（教训：FJ-1983 资产层只挂了"九宫格"名字，模板要求的 6 个结构化字段一个都没产出）。
 >
@@ -61,7 +61,7 @@ description: "【漫剧老李AIGC 全流程Skill · V7.5.0-SLIM 精简套装版�
 >    - **② 逐批确认**：每批落盘后停，等用户说「继续」（仅用于长剧集精修、或用户明确要求）；
 >    - **强制停的三种例外**（选哪个都要停）：单批实际输出**超预算 1.5 倍** / 机检 **FAIL** / 出现需用户拍板的岔路（改锁、素材来源冲突）。
 
-> 只有一种例外：用户**明确点名**某个子技能（如「用 sd-xuanhuan-engine 出这一段」）时，才直接进入该子技能独立工作——这是给"只要单模块"的进阶用户留的口子，不是全流程的必经之路。
+
 
 ---
 
@@ -267,7 +267,7 @@ skills/short-drama-director/          # L0 总控
 | **L2** | `sd-asset-engine` | 资产：三清单 + 九宫格/立绘/道具 + 场景连续性 + 道具单实例锁 + 人群调度 |
 | **L2** | `sd-storyboard-engine` | 文戏分镜：机位 + 段内衔接 5 维 + 运镜 5 模式 + 故事板图 + SHOT_TEXT 卡 + 剧情分镜格 |
 | **L2** | `sd-combat-engine` | 通用打戏（R2）：八类自然句 + 铁律 + 招式库 + 摄影机行为锁 + 战场群战速查 |
-| **L2** | `sd-xuanhuan-engine` | 玄幻仙侠打戏（R3）：黄金颗粒度 + 双向力量互换 + 尺度四件套（独立仓库） |
+
 | **L2** | `sd-real-engine` | 真人写实打斗（R1）：11 环动力链 + 真实格斗招式库 + 多人战斗调度（独立仓库） |
 | **L3** | `sd-feed-engine` | 投喂适配：A/B/C 模式 + 投喂层闸门（独有七类）+ 素材映射/人物锚定 + 多段衔接 + 工程语言清洗 |
 | **L3** | `sd-qc-engine` | 质检：连续性台账 + 剪辑转场分段门 + 声音设计 + 后期音乐 + 机检手册 |
@@ -289,7 +289,7 @@ skills/short-drama-director/          # L0 总控
 | 10 | 剧本引擎与台词七维 | `sd-script-engine/` | 本文件 §三 只列法则名 |
 | 12 | 资产（三清单/四格板/道具/场景） | `sd-asset-engine/` + `references/asset-spatial-ledger.md` | 「图N」编号口径以 `asset-first-pipeline.md` 为准 |
 | 13 | 文戏分镜与机位 | `sd-storyboard-engine/` | `camera-specs-15rules.md` 只保留规格 |
-| 14 | 打戏三档 | R3→`sd-xuanhuan-engine` / R1→`sd-real-engine` / 通用→`sd-combat-engine` | 本文件只保留档位判定表 |
+
 | 15 | 投喂封装与投喂层闸门 | `sd-feed-engine/` | 七段式字段写法仍以 `model-adapters.md` §5 为准；**闸门与 C 系的分工表**在 `feed-mode-and-gates.md` §二·分工表 |
 | 16 | 连续性/剪辑转场/声音/后期音乐 | `sd-qc-engine/` | P0~P2 门禁仍以 `quality-gate-review.md` 为准 |
 | 17 | 出稿机检 | `scripts/validate_prompt.py` | 使用手册在 `sd-qc-engine/references/machine-check-manual.md` |
@@ -297,7 +297,7 @@ skills/short-drama-director/          # L0 总控
 | 19 | 版本口径 | 本文件 frontmatter + `README.md` | **全包只允许一个版本串**（以 frontmatter 常量为准，不在正文写死）；沿革不参与 CURRENT 判定 |
 | **20** | **场面调度与站位决策** | **`references/blocking-direction.md`** | 站位"怎么写进提示词"归 `asset-spatial-ledger.md` §三 + `model-adapters.md` §5.0；本域只管**怎么决定** |
 | **21** | **故事板图 · SHOT_TEXT 卡 · 剧情分镜格** | **`storyboard-sheet-template.md`**（§十一 = SHOT_TEXT）/ **`plot-deduction-grid.md`**（剧情分镜格） | 九宫格场景图归 `sd-asset-engine`（纯场景无人）；HTML 看板归 `storyboard-board-lite.md`；15 格 PREVIS 归 `sd-combat-engine/`；**六者互不替代** |
-| **22** | **场景空间事实与状态变体** | **`asset-spatial-ledger.md` §四** | 玄幻战力尺度归 `sd-xuanhuan-engine`；本域管坐标系 / SET_STATE / 空气介质 / 尺度参照 / 年代锚 |
+
 | **23** | **素材存在形态与接线单** | **`references/asset-delivery-modes.md`** | `asset-first-pipeline.md` 只写门禁速查表；「图N」要素归 `asset-spatial-ledger.md`；引用红线归 `asset-mapping-and-rules.md` |
 | **25** | **画风锁知识库（方案通称 F 锁）** | **`references/style-bible/`** 8 份 + `scripts/style-lock-ladder.py` / `style-lock-recommend.py` | 〇节 I 锁只写锁纪律与流程；11 槽位/成品块/判据细则引用不重定义；**交付层零人名铁律归本域** |
 | **26** | **表演（行为与动机层）** | **`references/acting-direction.md`** | 面部微表情归 `facs-*` 三份；神态纪律归 `shot-economy-and-acting.md` §五·五 §六；**三层正交互补，本域只管「行为与动机」** |
@@ -345,7 +345,7 @@ skills/short-drama-director/          # L0 总控
 4. **角色资产板与亲缘推导**：A/B 级 16 项锁；T1 男女主 → T2 亲属配角按 40%~60% 骨相与五官关联推导。
 5. **空间顶视图与机位调度 (2x2)**：俯视平面绘制走位与 CAM1~CAM4，180° 轴线防护与合法越轴。
 6. **台词七维体检与语速自检**：对白 3.5~6 字/秒（按最快档 6 字判定），留 0.3~0.8 秒落口发酵空间，强制语速门禁扫描。
-7. **打戏 15 秒动力链 PREVIS（R1/R2/R3 三档）**：0~1.5s 开局硬撞，11 环动力链，防守三态，最后一帧定格。**R3 玄幻档切换法术语言**（法宝媒介+五行术法+术法攻防+能量具象化+对军清场，权威在 `sd-xuanhuan-engine`），不硬套武侠物理；R1/R2/R3 定档表见 `sd-combat-engine/references/tier-and-finisher-system.md`。
+
 8. **时长预算前置协议**：组数与时长的算法见 `model-adapters.md` §5 模型契约表 + §〇.D.⑦ 分段粒度（2.5 默认 25~30s 吃满上限、下限 12s、禁 16~24s 碎段区，180s 约 6~8 组；2.0 上限 15s，约 12~15 组）。长段必须用官方 `[起-止秒]` 时间戳分段且一镜连贯运镜过渡（模型不支持组内硬切）。**字数有两个粒度，别混**：① **整投喂单元**（七段合计）硬门禁见 `sd-feed-engine/references/feed-mode-and-gates.md` 闸门3——2.0 ≤2900 字 / 3000 硬上限、2.5 ≤3600 字 / 4000 硬上限；② **【时间轴分镜】段正文**单组密度参考 ≤500 中文字 / ≤1000 英文词（Seedance 官方建议值，只管镜头密度，不单独阻断）。
 9. **P0~P2 独立质检门禁**：阻断超时、跳轴与后台词外显；声音三层相对电平 对白(0 dB) > 物理音效(−6 dB) > BGM(−14 dB)。
 10. **画幅铁律（B 锁·用户指令优先）**：最终画幅一律以**用户指定**为准——说 16:9 就必须全走横屏模板并回填 `aspect_ratio=16:9`，⛔ 禁被示例里的 `9:16` 带偏；三选一（16:9 / 9:16 / 21:9）与模型版本同属〇节前置锁定，**未指定 = 任务不开始，禁止默认 9:16**。**画幅一致性机检 C6b 三处互校**：`aspect_ratio=` ↔【画幅风格】行 ↔ `--aspect`，任一处不符即 FAIL；横竖构图词越界 → WARN。路由权威 = `aspect-ratio-adaptation.md`。
@@ -364,7 +364,7 @@ skills/short-drama-director/          # L0 总控
 22. **禁令失效三改法 + 栏目纪律**：**视频模型对否定不敏感、对词根敏感**——「禁空镜」里的空镜、「不发光」里的发光、「面无笑意」里的笑，词根留在提示词里（哪怕挂着"不/禁"）就会被当画面词渲染（实测三条否定式禁令两轮全被无视）。高关联视觉概念（光效/表情/开场镜头）必须三改：① **换词**——被禁词根在**任何位置**（含强制禁止项）零出现，改写正向描述（道具→「深青色实心哑光石质，玉面呈青玉原色」**零光效描写**，C20d；表情→「双唇抿紧、嘴角向下压、下颌绷紧」；首帧→「画面主体：<人名>…」单主体开头）；② **主体优先句式**——每段镜1 第一个分句即画面主体，环境前置词开头会诱导空场景（C19c）；③ **触发器移除**——诱发被禁效果的动作/构图换掉（道具不与灯火共现：只把玩/佩戴，不靠近任何光源——旧建议"举到油灯旁侧受光"已废止，实测同样点火）。**栏目纪律**：【强制禁止项】被模型当"规避清单"读，**只装负面清单**（变形/手部异常/服装变化/现代元素/字幕/Logo/水印；文字；音频）——**正向执行指令禁入**（写进去既不当禁令也不当指令），**否定式禁令同样禁入**（被禁词根＝画面词）；正向指令一律回落【时间轴分镜】镜行/【画幅风格】/【站位声明】（C19e）。水印/变形等**低关联瑕疵**仍走否定式兜底。**具象光源映射（C19d）**：反光道具镜行禁写「映出/倒映火苗」——模型会把「映出+光源名词」读成光源出现在道具上，只写材质本色（旧"光斑语言"已废止，实测出片像打火机点了一簇火）。**镜行少形容词**：正向描写每镜只留必要项（主体/动作/材质/光各一处），堆叠会稀释关键信息、拉低服从率。规程见 `model-adapters.md` §5.0.4，机检 C19a~e 兜底。
 23. **首镜单主体锚定与具象化（防"两张脸"）**：① **锚定句只许一个具名主体**——**禁「X 与 Y 同框」类并列主体句式**（模型读成"画面里有两个主体"，把同一主体的手与脸渲染成**两个头**；❌「首帧即这只手与她的脸同框」→ ✅「画面主体：林清月蜷卧土炕、病容苍白。她的一只手搭在破被外」）；确需两人同镜由【站位声明】具名双主体承载，**镜行内不写「同框/同在画面/一同入画」**（C20a）；② **指代词必须带归属**——「这只手/那张脸」无先行词时模型会**自己补一个主体**，一律写「她的一只手/他的右手」（C20b）；③ **抽象形态·程度副词一律删**——「成线/成串/如注/轻蜷」描述的是**模型无法命名的过程形态**（❌「漏雨成线砸在手背上」+「手指轻蜷」→ ✅「雨滴砸在手背上溅开」）。**判据一句话：这句里每个词都能画出来吗？画不出来的就是形容词——删掉或换具象动作。** ④ **反光道具零光效描写**——光斑/受光/照射/亮起类从句一律不写，只写材质本色（C20d）。机检 C20a~d 兜底。
 24. **示范句验证纪律（治"规则层产毒"）**：历轮废镜的共同源头是**示范句先验创作**——当轮凭理解新造、未实拍验证就写成 ✅ 正例（甚至嵌进机检修复建议文案），产物照抄后成为下一轮翻车源。铁律：**正例只准从实拍通过的产物回收【实证】；新造句必须标【待验证·未实拍】且禁入机检修复建议文案；修复建议只写判据不造句；判据升级必须同轮清扫全部下游文档**。规程见 `model-adapters.md` §5.0.5，包级机检 **⑰ 规则自洽门**兜底。
-27. **打斗史诗规程（一镜到底群战）**：**阵营色彩锁**（敌我冷暖两套色全片禁互串）/ **超音速 Z 型移位三件套**（折点残影·轨迹连线·终点凝实 + 音爆锥）/ **群战递增铁律**（敌数单调递增绝不回落、杀伤成片成排）/ **武器形态单次变形**（全片只变一次、五步完整演出、禁凭空换模）/ **蓄力涡旋与尾帧定格** → `sd-xuanhuan-engine/references/epic-battlefield-protocols.md`；**冲击帧分级**（一/二/三级，三级同场只 1 次 + 3 帧白闪）与**战斗负面词库** → `sd-combat-engine/references/impact-frame-and-banlist.md`。**均为打戏可选增强，按场面需要启用。**
+
 28. **画风锁交付纪律（I 锁 · 方案通称 F 锁）**：① **两层架构**——选项层可用导演/工作室名，**交付层（投喂稿）绝不出现人名/工作室/影片名**（C23d1）；② **转译责任在系统**——选定后必须按 `director-param-library.md` 落 11 槽位量化参数、组装段8/段9 成品块**逐字植入**，禁把「徐克风」类模糊词写进提示词（C23d2）；③ **段8 定区间、镜头段落区间**——镜头段光比/焦段/帧率取值必须落在段8 区间内（C23b）；④ **题材硬门槛**——含打斗稿禁用打戏承载 ≤★1 的风格（C23e）；⑤ **单镜纪律**——一镜只建 1 个全身人物（交接拆两镜）、动作意图 ≤2 项（C23f）；⑥ **选定即冻结**——中途换风格 = 重开任务。规程见 `style-bible/director-to-prompt-protocol.md`，交付规范见 `style-bible-spec.md`。
 ### 机检维度分组（C 规则多门制）与分级处置
 
@@ -384,7 +384,7 @@ skills/short-drama-director/          # L0 总控
 | **对话节奏门** | **C27** | 对话段正反打来回与台词密度下限（WARN） | 仅对话段（空镜/打斗/转场/静场留白豁免） |
 | **台词语感门** | **C28** | 台词「像不像人说的」（WARN · **只报不改**） | 常开 |
 | **资产状态门** | **C29** | 参考图锁定项 × 提示词改写需求冲突（WARN · **只报不改**） | 常开 |
-| **外挂指纹与交接门** | **C30** | 外挂子技能是否真出力（WARN） | `--plugin auto\|real\|xuanhuan\|combat\|off` |
+| **外挂指纹与交接门** | **C30** | 外挂子技能是否真出力（WARN） | `--plugin auto\|real\|combat\|off` |
 | 交付契约门 | **C31** | 全流程交付契约与权威源核销 | `--contract` |
 | 画面段三要素门 | **C32** | 镜行画面段有没有写「背景 + 光线」（WARN · 无子码） | 常开 |
 | 焦段门 | **C33** | 镜行未标注焦段 | 常开 |
@@ -409,7 +409,7 @@ skills/short-drama-director/          # L0 总控
 - **C26a~g** 世界锚缺失／年代锚与正文冲突／年龄锚缺失／身份可渲染外观缺失／全能参考冗余二次介绍（**CLI 阻断**）／随身道具漏 @／@ 锚点与接线单图号不一致。
 - **C27a~d** 段落类型识别／台词密度 <2.0 字·秒⁻¹／开口 <6 次·15s⁻¹／同一说话人连占 ≥2 镜（站桩式对话）／ **C27x** 段落识别跳过率 100% 元告警。
 - **C28a~c** 现代书面虚词／≥40 字台词零语气词／≥20 字单句无停顿标点——**只报不改**，报出即回阶段⑤ 过《台词拟人化过站》。
-- **C30a~l** R3 缺尺度四件套或三层复合元素／R1 缺 11 环动力链或防守三态／对话稿缺 Voice 声线锁／缺【外挂激活回执头】／长时相持词／假攻击／四收束协议缺失／中全景 90° 正侧拍／R1 特效越界污染／R1 腾空旋转超限／多人打戏站等与特写 ≥3 人（**h 位留空未启用**）。
+- **C30a~l** R3 缺动作空间与三层复合元素／R1 缺 11 环动力链或防守三态／对话稿缺 Voice 声线锁／缺【外挂激活回执头】／长时相持词／假攻击／四收束协议缺失／中全景 90° 正侧拍／R1 特效越界污染／R1 腾空旋转超限／多人打戏站等与特写 ≥3 人（**h 位留空未启用**）。
 - **C35~C39** 多人物镜未标层次／连续动作一句带过／背景多人同动未点名／段间缺桥接声明／竖屏空镜冗余。
 - **C40a~d** 裸 `（在场）` 未带 `·事务：`／群像镜行聚合词且无事务动词／摆位 ≥3 人而事务缺失率 ≥50%／摆位 ≥2 人却既未写 `无其他人物` 也未派事务。**只查开（A/B）门，C 类段只查 d**。
 - **C41** 稿内仍当硬约束写「一组 3~4 镜 / 4~8 镜」或「单镜 3~5s」+ 约束词 → WARN；**带追述豁免**与**描述性放行**。治：机械等分镜长（C13）与硬并回合（C27d）的上游。
@@ -448,7 +448,7 @@ skills/short-drama-director/          # L0 总控
 | **`/微表情`** 或 **`/表情诊断`** | 启动 FACS 微表情引擎：空泛情绪词 → AU 配方替换（四区拆解+强度三档+时序+英文 kernel）；可产出角色情绪库 / FACS cue 表，或按自检清单做表情审查。 |
 | **`/表演档案`** 或 **`/表演指导`** | 启动**表演指导层**（`references/acting-direction.md` · 2026-10-09 新增）：按五支柱（目标/障碍与代价/战术/节拍/潜台词）为角色写**表演主档案**（含「然而，当 X——」破功句 + Voice 声线锁）→ P3 落成逐镜**节拍表** → P4 只投喂压缩版（≤2 句进镜行）。**与 `/微表情`（FACS 面部层）正交互补：本命令管「行为与动机」。** |
 | **`/语速自检`** 或 **`台词语速检查`** | 启动 dialogue-speed-check 语速自检：拆句 $\rightarrow$ 计数 $\rightarrow$ 套档 $\rightarrow$ 判定。 |
-| **`/生成视频提示词`** | 输出 Seedance 2.5 / 2.0 分层独立三层解耦提示词组（每组时长按模型契约: 2.5 ≤30s / 2.0 ≤15s）（⚠️ 画幅必须以用户指定 16:9 或 9:16 为准，禁止默认回落竖屏）。**投喂前必过清单（按序）：① `seedance-render-engine`（三层解耦+时长预算）→ ② `aspect-ratio-adaptation`（画幅回填）→ ③ `camera-specs-15rules`（镜头五要素+景别阶梯）→ ④ 有对白必过 `dialogue-speed-check`（语速自检）+ `wenxi-micro-expression`（金句发酵）+ `model-adapters.md` §5.2（**语气位必写**，2.0/2.5 同规格）；有 OS/VO 必过 `vo-os-weaving`（声画分离/配额）→ ⑤ 战斗段**先定档**（`sd-combat-engine/references/tier-and-finisher-system.md` 〇节）**再取库**：R3玄幻 → `sd-xuanhuan-engine` / R2武侠现代 → `sd-combat-engine` / R1写实 → `sd-real-engine`→ ⑥ 出稿前过 `quality-gate-review` → ⑦ **出稿机检**跑 `scripts/validate_prompt.py <稿> --model 2.5\|2.0`，FAIL 清零才交付。完整执行序列见 `references/prompt-feeding-checklist.md`。** |
+
 | **`/导出工作流参数`** | 导出适用于 WorkBuddy / 豆包工作流 / Canvas / API 的结构化载荷（⚠️ 载荷内 `aspect_ratio` 回填用户指定画幅）。 |
 | **`跳过确认，直接出整集`** | **极速直出模式**：后台静默执行全套工业约束，前台直接输出无后台词污染的成品。**软推断范围仅 〇·1 素材来源（须在首行说明）；A 模型 / B 画幅仍须用户指定或确认，不得推断**（见 §五·极速直出模式的套装编排）。 |
 | **`/看板`** 或 **`编译看板`** | 把项目 md 一键编译为**单文件离线分镜看板**（`scripts/build_board_lite.py`，双击即开；规范见 `references/storyboard-board-lite.md`）。 |
@@ -458,13 +458,13 @@ skills/short-drama-director/          # L0 总控
 
 ---
 
-## 五、多技能套装路由（1 总控 + 10 子技能 · 四层纵深架构）
+## 五、多技能套装路由（1 总控 + 9 子技能 · 四层纵深架构）
 
 > ⚠️ **本章是「总控的内部调度机制」，不是「用户操作手册」。** 用户全流程使用时**只跟总控对话一次**，本表的全部路由由总控自动完成，用户无需阅读、无需手动指定任何一行。本章只服务于「总控内部如何按阶段分流」以及「点名单模块的进阶用户」。
 
 > **架构分工**：跨阶段共享权威（锁系统〇节 / 七段式 `model-adapters.md` / 画幅 / 段缝 / FACS / **48 份规则库** / `scripts/` 机检全家桶）**保留在本总控**；领域专精规则下沉到 **10 个子技能**。
 >
-> **打戏三档分流**：通用武侠物理打斗 → `sd-combat-engine`；R3 玄幻仙侠斗法 → `sd-xuanhuan-engine`（完整规则库权威）；R1 真人写实克制 → `sd-real-engine`（完整规则库权威）。后两者同时保有独立开源仓库，可脱离套装单独分发。
+
 
 ### 四层纵深架构总览
 
@@ -475,7 +475,7 @@ L1 · 决策层   sd-decision-engine（情境映射 E01~E15 / 80·15·5 / 情绪
                     ↓ 选型依据
 L2 · 生产层   ★sd-recon-engine（素材采风 · 〇·1 锁 ③④ · 出《对标情报卡》）· sd-script-engine（剧本）
               sd-asset-engine（资产）· sd-storyboard-engine（文戏）· sd-combat-engine（打戏）
-              sd-xuanhuan-engine（玄幻）· sd-real-engine（真人）
+
                     ↓ 产出
 L3 · 交付层   sd-feed-engine（投喂 A/B/C 模式 + 投喂层闸门）· sd-qc-engine（质检/声音/后期音乐）
 ```
@@ -494,7 +494,7 @@ L3 · 交付层   sd-feed-engine（投喂 A/B/C 模式 + 投喂层闸门）· sd
   │   ③ sd-asset-engine      资产引擎（P2 资产锁定执行层 + 连续性/群像）
   │   ④ sd-storyboard-engine 分镜引擎（P3 文戏/日常戏 + 段内衔接5维 + 运镜5模式 + **★故事板图/面板链** + SHOT_TEXT 分镜线稿卡）
   │   ⑤ sd-combat-engine     打戏引擎（P3 通用打戏/武侠 + 摄影机行为锁速查）
-  │   ⑥ sd-xuanhuan-engine   玄幻引擎（P3 R3 玄幻仙侠专精：法术/剑阵/法相/尺度几何）
+
   │   ⑦ sd-real-engine       真人引擎（P3 R1 真人写实专精：格斗/警匪/多人战斗）
   └─ L3 交付层
       ⑧ sd-feed-engine       投喂引擎（P4 投喂适配：A/B/C 模式 + 投喂层闸门）
@@ -517,7 +517,7 @@ L3 · 交付层   sd-feed-engine（投喂 A/B/C 模式 + 投喂层闸门）· sd
 | **P0B** 决策 | 分镜前 | `sd-decision-engine/SKILL.md` + `context-mapping.md` + `emotion-anchor-table.md` + `forbidden-zone-whitelist.md`（★构图雷区 A/B 双态白名单） | 情绪锚点表（情境 ID + 80/15/5 锁定机位组合 + 构图雷区 A/B 清单） |
 | **P1** 剧本 | 素材来源锁定后（③④ 须先出情报卡） | `sd-script-engine/SKILL.md` + `six-stage-pipeline.md` + **`dialogue-naturalization.md`（台词拟人化引擎：称呼表 / 书面→口语对照 / 撒碎屑四法 / 认症表 / 阶段⑤ 过站）+ 总控 `dialogue-doctor-7d.md`（台词七维诊断 · 定稿前体检）**——前者管「怎么写」、后者管「哪里不对」，缺任一即台词必机械；按需 `roundtable-review.md`；输入是成型外部剧本时先读 `external-script-polish.md` | 可追溯分集剧本 + 无爽点捧杀；外来剧本另出 `POLISHED_SCRIPT.md` + `POLISH_CONFIRM_CARD.md` + `POLISH_FINDINGS.md` |
 | **P2** 资产 | 剧本就绪后 | `sd-asset-engine/SKILL.md` + 必读 `sd-asset-engine/references/scene-grid-template.md`（九宫格）· `character-portrait-templates.md`（立绘）· `prop-template.md`（道具）+ 总控 `asset-spatial-ledger.md` §四（场景出图分工 + 空间事实五件事含**年代锚 ERA_ANCHOR**）+ 剧本层《世界锚卡》《人物锚卡》随 HANDOFF 交接 + `asset-delivery-modes.md` | 按形态产出（M0 外观档案复述块 / **M1 出图提示词 + 图号 + 接线单** / M2 分批锁定）；三清单；每场景坐标系与 SET_STATE 状态变体；每角色年龄锚+体型锚+身份外观（C26c/C26d）；**九宫格提示词须含 8 字段**（内容分配/锁定模式/摄影机矩阵/摄影机参数/光照曝光/标注要求/画面纯净/风格分支）；**场景母版与九宫格两类都出、互不替代**；写完必跑 `check_asset_blocks.py` FAIL 清零 |
-| **P3** 分镜 | 资产锁定后 | **⓪ ★表演环：总控 `references/acting-direction.md`**（不读＝表演层未启动）；**① 调度环** 总控 `blocking-direction.md`（先建坐标系→摆位→节拍闭环→权力几何→道具账→定镜头策略）；**② 分镜环** `sd-storyboard-engine/SKILL.md` + `short-drama-camera-system.md` + `shot-economy-and-acting.md` + `scene-space-adaptation.md` + `segment-linkage.md`；**③ 图形化环** `storyboard-sheet-template.md`（★故事板图 + SHOT_TEXT 卡）+ `plot-deduction-grid.md`（★剧情分镜格 · **条件必出**）；**④ 穿帮防治环** 总控 `blooper-prevention-playbook.md`（C35/C36/C37 权威 · 写画面主体/站位声明/禁止项前必读）；**打戏按档全量读本档核心库，禁只读引擎 SKILL.md 与招式库**——R1 `sd-real-engine`：`r1-combat-core.md` + `kinetic-chain-11.md`〔11 环动力链〕+ `defense-evasion-rules.md`〔防守三态〕+ `impact-physics.md`〔受击物理〕+ `camera-action-specs.md` + `render-adapters.md`；R3 `sd-xuanhuan-engine`（**xuanhuan-combat-director V2.6.0 Ultimate 全量 9 份库强制必读**）：`core-combat-laws.md` + `camera-specs-15modes.md` + `close-quarters-engine.md` + `xuanhuan-elements-vfx.md` + `grand-scale-domains.md` + `arsenal-moves-library.md` + `arsenal-parameter-library.md` + `character-scene-presets.md` + `epic-battlefield-protocols.md`；R2 `sd-combat-engine`：`combat-iron-laws.md` + `combat-construction.md` + `eight-sentence-masters.md` + `combat-rhythm-and-load-guardrails.md` + `impact-frame-and-banlist.md` + `vfx-rendering-mandate.md`；其余按需查各引擎 SKILL.md | 《角色表演档案》（每主要角色一份 · 五支柱 + Voice 声线锁）+ 逐场节拍表 + 文字平面图与站位声明 + 分镜稿 + 故事板图提示词（CLEAN_GRID）+ 剧情分镜格/豁免理由 + 群像声明；写进 **P3 图形化交付清单**，**禁静默跳过** |
+
 | **P4** 投喂 | 分镜定稿后 | `sd-feed-engine/SKILL.md` + `feed-mode-and-gates.md`（投喂层闸门 · 含与 C 系的分工表）+ `asset-mapping-and-rules.md` + 总控 `model-adapters.md` §5（七段式唯一权威）+ `segment-splicing.md`（D 锁）+ `prompt-feeding-checklist.md`（§〇·补 8 项）+ `blooper-prevention-playbook.md`（投喂镜行穿帮面） | 七段式投喂稿 + 投喂层闸门与 C 系机检**合并报告**（一次 `gate_check.py` 出）+ 台词完整性对照记录 |
 | **P5** 质检 | 投喂稿完成后 | `sd-qc-engine/SKILL.md` + `machine-check-manual.md` + `continuity-ledger.md` + 总控 `asset-delivery-modes.md`（按形态改判一致性门）+ 跑 `validate_prompt.py`（**多段稿一律加 `--by-segment`**）+ `check_asset_blocks.py` | 连续性台账（含素材形态字段）+ 机检报告（FAIL 清零）+ 看板；M0/M1 一致性门改判为「与文字档案一致」，**禁称图像级核验** |
 | **交付标配**（别名 P4.5 · 默认必出 · CT5-P45 条件门） | 每次 P4 交付后 | `sd-storyboard-engine/references/p45-previs-storyboard.md`（★唯一权威） | `{项目名}-预演故事板.md` 独立文件：一段一节 = 「本段要验什么」+ 故事板提示词 + 「看图先看这三点」；**⛔ 只出提示词、不出图**，不入册、不占槽；交付清单须列「预演故事板：段n~段m ✅ / ⛔未附（理由）」；与 P3 故事板图（生产资料）**禁互相替代** |
@@ -557,7 +557,7 @@ L3 · 交付层   sd-feed-engine（投喂 A/B/C 模式 + 投喂层闸门）· sd
 | **P5** | P0/P1/P2 三级质检门禁 / 出看板 | `references/quality-gate-review.md` / `references/storyboard-board-lite.md` |
 | **P5 / 复盘** | 用户拿成片来拉片复盘（ffmpeg 抽帧逐格对稿）/ 成片穿帮要求归因到稿 | `references/blooper-prevention-playbook.md`（★权威 · §九 拉片-改稿闭环六步 + §一~§八 归因对照；**根因必须归到「稿子哪句没写死」，不接受「模型问题」**；改稿走三明治序：画面主体→站位声明→禁止项） |
 | **交付 · 打包** | 收尾交付 / 合并文档 / 判断「交几个文件」「哪些能进交付稿」 | `references/delivery-pitfalls.md`（件数上限 3 · 正文只放资产＋分镜提示词 · 自包含五条 · 角色 5 格与九宫格八字段 · 交付前五项验收） |
-| **题材 · 玄幻大招** | R3 玄幻大招 / 法术特效 | `references/anime-ultimate-vfx-paradigm.md` |
+
 | **题材 · 美学预设** | 选电影级视听美学预设（诗意/纪实/港派/赛博/水墨/国漫） | `references/audiovisual-aesthetic-presets.md` |
 | **场景 · 布光** | 日景实拍 / 需防"棚拍假冷光" | `references/lighting-and-antifake.md` |
 | **工具 · 工作流** | 用 ComfyUI / Canvas 工作流对接 | `references/comfyui-canvas-automation.md` |
@@ -568,11 +568,11 @@ L3 · 交付层   sd-feed-engine（投喂 A/B/C 模式 + 投喂层闸门）· sd
 | **子技能 · P1** | 来源登记 / 全剧开发圣经与人物锚卡 / 分集规划与场次过渡 | `sd-script-engine/references/source-registration.md` / `sd-script-engine/references/story-bible-and-ip.md` / `sd-script-engine/references/episode-planning.md` |
 | **子技能 · P2** | 三清单提取规程 / 场景跨集连续性与人群调度 | `sd-asset-engine/references/three-list-extraction.md` / `sd-asset-engine/references/continuity-and-crowd.md` |
 | **子技能 · P3 R1 按需** | 多人战（1vN·三拍轮转）/ 真实搏击技术 / 组合连招 / 19 门传统武学流派 | `sd-real-engine/references/multi-opponent-rules.md` / `sd-real-engine/references/real-fight-techniques.md` / `sd-real-engine/references/technique-combo-library.md` / `sd-real-engine/references/martial-styles-extended.md` |
-| **子技能 · P3 R3 按需** | 神魔近身缠斗 / 史诗战场群战协议 / 法宝招式库 / 法宝双轨物理参数库 / 角色场景预设 | `sd-xuanhuan-engine/references/close-quarters-engine.md` / `sd-xuanhuan-engine/references/epic-battlefield-protocols.md` / `sd-xuanhuan-engine/references/arsenal-moves-library.md` / `sd-xuanhuan-engine/references/arsenal-parameter-library.md` / `sd-xuanhuan-engine/references/character-scene-presets.md` |
-| **子技能 · P3 R2 按需** | 具名招式库 / 法术体系 / 终极法阵库 / 角色场景预设 / 27 标杆案例句法语料 / 双引擎适配 / 战场速查卡 | `sd-combat-engine/references/moves-library.md` / `sd-combat-engine/references/spell-system.md` / `sd-combat-engine/references/ultimate-array-library.md` / `sd-combat-engine/references/presets-library.md` / `sd-combat-engine/references/syntax-corpus.md` / `sd-combat-engine/references/seedance-dual-engine.md` / `sd-combat-engine/references/combat-cheatsheet.md` |
+
+
 | **子技能 · P4 投喂扩展** | 工程语言清洗 / 多段连续性策略 | `sd-feed-engine/references/engineering-language-cleanup.md` / `sd-feed-engine/references/segment-continuity-strategy.md` |
 | **子技能 · P5 质检扩展** | 剪辑转场与分段门 / 声音设计模板 / 后期音乐与 BGM Cue Sheet / 规则分类与放行裁决 / 阶段验收总表 | `sd-qc-engine/references/editing-transition-gate.md` / `sd-qc-engine/references/sound-design-template.md` / `sd-qc-engine/references/post-music-sound-design.md` / `sd-qc-engine/references/rule-taxonomy-and-verdict.md` / `sd-qc-engine/references/stage-acceptance-table.md` |
-| **子技能 · P3 其余** | R1 其余 / R3 其余 / R2 其余 | `sd-real-engine/references/r1-combat-core.md` / `sd-real-engine/references/kinetic-chain-11.md` / `sd-real-engine/references/defense-evasion-rules.md` / `sd-real-engine/references/impact-physics.md` / `sd-real-engine/references/camera-action-specs.md` / `sd-real-engine/references/render-adapters.md`；`sd-xuanhuan-engine/references/core-combat-laws.md` / `sd-xuanhuan-engine/references/camera-specs-15modes.md` / `sd-xuanhuan-engine/references/xuanhuan-elements-vfx.md` / `sd-xuanhuan-engine/references/grand-scale-domains.md`；`sd-combat-engine/references/combat-iron-laws.md` / `sd-combat-engine/references/combat-construction.md` / `sd-combat-engine/references/eight-sentence-masters.md` / `sd-combat-engine/references/vfx-rendering-mandate.md` / `sd-combat-engine/references/impact-frame-and-banlist.md` / `sd-combat-engine/references/combat-rhythm-and-load-guardrails.md` |
+
 ### 子技能路由表
 
 | 场景信号 | 路由到 | 权威边界 |
@@ -587,8 +587,8 @@ L3 · 交付层   sd-feed-engine（投喂 A/B/C 模式 + 投喂层闸门）· sd
 | 文戏/日常戏文字分镜、机位设计、表演指导、镜头衔接、运镜衔接 | **sd-storyboard-engine**（L2） | 短剧视感机位权威在子技能；投喂封装走 sd-feed-engine |
 | **故事板**：故事板图、分镜图、面板链、关键帧计划；**SHOT_TEXT 卡**：线稿卡、预演卡、走位平面图 | **sd-storyboard-engine**（L2 · 产出） | **唯一权威 = `storyboard-sheet-template.md`**；与九宫格场景图（纯场景无人）**不得互替** |
 | **预演故事板**（P4.5 · 交付标配 · 默认必出）：附个预演故事板、先看看这段戏长什么样、给甲方看 | **sd-storyboard-engine**（L2 · 交付附件） | **唯一权威 = `p45-previs-storyboard.md`**；⛔ 只出提示词不出图；产物 = 独立 md，不入册不占槽。**它是沟通资料，P3 故事板图是生产资料，禁互相替代** |
-| 打戏/武打/战斗场面/大招（通用·武侠物理）、摄影机行为锁、战场群战 | **sd-combat-engine**（L2） | 八类自然句与铁律体系权威在子技能；**R1~R3 定档表与大招终结技体系权威在 `tier-and-finisher-system.md`** |
-| 玄幻打斗/仙侠斗法/法术对轰/万剑归宗/剑阵/法相/神魔大战 | **sd-xuanhuan-engine**（L2） | **R3 完整规则库权威在子技能**（总控轻量速查入口已删除） |
+| 打戏/武打/战斗场面/动作高潮（通用动作）、摄影机行为锁、战场群战 | **sd-combat-engine**（L2） | 八类自然句与铁律体系权威在子技能；**R1~R3 定档表与动作终结技体系权威在 `tier-and-finisher-system.md`** |
+
 | 真人打斗/写实格斗/警匪追逐/悬疑暗杀/喜剧打斗/多人战斗 | **sd-real-engine**（L2） | **R1 完整规则库权威在子技能**（总控 R1 references 已删除） |
 | 转 Seedance 提示词、投喂、提示词包、素材映射、多段衔接、字数超限 | **sd-feed-engine**（L3） | 七段式字段写法权威在总控 `model-adapters.md`；子技能只管 A/B/C 模式与投喂层闸门（独有七类） |
 | 连续性台账、剪辑转场分段、声音设计、配 BGM、机检执行 | **sd-qc-engine**（L3） | P0~P2 门禁权威在 `quality-gate-review.md`；`validate_prompt.py` 在总控 `scripts/` |
@@ -622,16 +622,45 @@ L3 · 交付层   sd-feed-engine（投喂 A/B/C 模式 + 投喂层闸门）· sd
 >
 > **口径优先级**：本表 > 本文件 §〇「任一项未指定 = 任务不开始，禁止默认跳过」。**极速模式是对〇节的明文例外，例外范围仅限〇·1**——〇·1 之外的任何"默认"仍然禁止。
 
-`跳过确认，直接出整集` 时按管线顺序执行，**每阶段仍必须按上方【强制读取清单】显式读取对应子技能文件**（"跳过确认"只跳过向用户提问，不跳过读规则、也不跳过 A/B 锁）：**〇·1 定素材来源**（需求里出现"对标 / 参考某部剧 / 最近什么火"→ ③/④ 并加读 `sd-recon-engine`、先出《对标情报卡》；给的是小说/原著 → ②；否则 → ①；**素材来源推断结果须在交付首行说明**）→ **A/B 锁仍须用户指定或确认**（需求未含模型或画幅信息 → 停下询问，**不得推断、不得默认**）→ ⓪ 读 sd-decision-engine → 出情绪锚点表 → ① 读 sd-script-engine 六阶段编剧链（可跳过：已有剧本时）→ **素材形态默认 M1**（用户没提图：出图号 + **《素材接线单》**；说"没有图/不要图号"→ 降 M0 改文字锁；说"图出好了"→ 升 M2；**形态须在交付首行声明**，见 `asset-delivery-modes.md`）→ ② 读 sd-asset-engine → 三清单+**按形态产出**（M0 外观档案复述块 / **M1 出图提示词+编号+接线单** / M2 分批出图；九宫格按模板字段写全；**核心场景另交坐标系与 SET_STATE 状态变体登记**，见 `asset-spatial-ledger.md` §四）→ **②′ 调度环：读总控 `blocking-direction.md` → 建场景坐标系与文字平面图 → 摆人物初始位 → 逐拍走节拍闭环 → 定权力几何 → 记道具账 → 选唯一镜头策略模式**→ ③ 文戏读 sd-storyboard-engine；**同段若含群像（调度环已标 `群像：A/B`）必加读 `short-drama-director/references/crowd-behavior-direction.md`**——画面里每个可见的人必须派到一件自己的事，`（在场）` 一律升级为 `（在场·事务：）`、站位声明四要素升五要素（机检 C40 只查开（A/B）门，C 类段只查一句「无其他人物」声明）；打戏按档分流——通用武侠读 sd-combat-engine / R3 玄幻读 sd-xuanhuan-engine / R1 真人写实读 sd-real-engine → **③′ 图形化环：读 `sd-storyboard-engine/references/storyboard-sheet-template.md` → 每段一张故事板图（动作相位七态拆格；文戏默认 2×2 四宫格 ≥4 格 / 打戏默认 2×3 六宫格 ≥6 格）→ 出 CLEAN_GRID 无文字版**（跨 2 镜以上叙事段/打戏段/重场戏必出）；**另读 `sd-storyboard-engine/references/plot-deduction-grid.md` 按条件必出规则出场次剧情分镜格**；**两件都逐段/逐场写进 P3 图形化交付清单，不出须写「⛔豁免 + 理由」，禁静默跳过** → ④ 读 sd-feed-engine → 过投喂层闸门并封装 → ⑤ 读 sd-qc-engine → 台账+机检 → ⑥ 总控看板输出。
+
 
 ### 打戏三档分流判定（先定档再路由）
 
 | 档位 | 触发信号 | 路由 |
 |---|---|---|
 | **通用武侠物理** | 古装武侠、刀剑对决、江湖门派、体术肉搏（无超自然特效） | `sd-combat-engine` |
-| **R3 玄幻仙侠** | 仙侠修真、法术对轰、剑阵法阵、法相显圣、灵力灵气、法宝飞剑、神魔大战 | `sd-xuanhuan-engine` |
+
 | **R1 真人写实** | 现代格斗、警匪追逐、悬疑暗杀、喜剧打斗、儿童向、群战多人 | `sd-real-engine` |
 
-> 混合题材（都市玄幻爆发）先按 R1 写实出日常段，爆发瞬间切 `sd-xuanhuan-engine` 的修仙版双轨；档位切换写清触发点（灵气收敛/光芒熄灭 → 回落写实）。
 
-> ⚠️ **打戏让行条款（2026-10-12 用户裁定 · 优先于 C21/C22）**：**打戏档（R1/R2/R3）的打斗领域规则以打戏引擎本档规则库为准**——`sd-xuanhuan-engine`（R3 完整 9 份库）/ `sd-real-engine`（R1 完整 11 份库）/ `sd-combat-engine`（通用 + 铁律全表）。总控级 **C21/C22 与跨引擎两组护栏为 WARN 参考，不是一票否决**；**R1 枪战/狙击/暗杀/追车/儿童向/多人轮转**、**R3 大场面档（万剑归宗/剑阵/法阵/法相/巨兽/对军清场）与术法对轰·远程档**、**群战乱斗** 按豁免表放行——豁免表唯一权威 = `sd-combat-engine/references/combat-rhythm-and-load-guardrails.md` §七（+ `combat-intensity-guardrails.md` §六）。**保底不放行**：不得整场零位移零接触无收束、相邻区间机位不得连排 ≥3 段相同。⛔ **禁止为消除 C21/C22 告警而把打戏改呆**（拆招式序列 / 近景对招拉远景 / 每镜硬塞慢动作 / 大场面写成一镜一动作）。豁免理由写进《改动复验报告》。**另：几段式分段、段末定格、【接续状态】废止——用户已明示不影响打斗成片效果，不作为打戏改稿依据。**
+
+
+
+
+---
+
+## 现代都市短剧扩展路由（个人 Fork 扩展）
+
+当用户提出现代都市、霸总、豪门、职场、商战、契约婚姻、复仇、家庭伦理或都市悬疑短剧需求，或要求现代办公室/豪宅/酒店/医院等场景的俯视结构图、人物站位图、走位图、机位覆盖与连续性管理时，自动读取并路由至仓库根目录的 `sd-modern-drama-engine/SKILL.md`。
+
+- 本扩展同时支持 `LIVE_ACTION`（真人写实）与 `3D_CG`（3D写实动画）两套视觉模式；每个项目/场次仍须按 I 画风锁明确当前模式，不得在同一镜头混用。
+- 场景空间与人物调度必须同时遵守本总控的 `references/blocking-direction.md`；现代扩展模板只补充场景字段，不另创坐标/轴线规则。
+- 资产、故事板、投喂和质检仍分别服从原 `sd-asset-engine`、`sd-storyboard-engine`、`sd-feed-engine`、`sd-qc-engine` 权威规则。
+- 五道前置锁、I画风锁、M0/M1/M2、Seedance 2.5/2.0语法分离、七段式投喂及C系列机检均不变。
+
+此为个人 Fork 的扩展路由，不代表上游原作者官方发行；若扩展与上游规则冲突，以原总控及各子引擎权威文件为准。
+
+
+## 现代都市短剧与统一视觉模式（新增题材路由）
+
+本总控现统一服务两大题材方向：
+
+- **现代都市方向**：现代霸总、豪门、职场、商战、契约关系、复仇、家庭伦理与都市悬疑，必须读取 `sd-modern-drama-engine/SKILL.md`，并按其现代场景、空间结构、人物站位/走位、机位覆盖与连续性模板执行。
+
+### 视觉模式锁（两种均支持）
+- `LIVE_ACTION`：真人影视写实，遵守真人摄影、真实材质、表演与物理连续性。
+- `3D_CG`：3D 写实动画，遵守 CG 材质、模型一致性、渲染与动画运动规律。
+- 每个项目先锁视觉模式；跨项目可分别使用两种模式，同一场/同一镜头禁止无说明混用。用户未指定时，按现有 I 画风锁流程询问，不得擅自默认。
+
+### 总控路由原则
+现代题材由 `sd-modern-drama-engine` 提供场景与调度专用模板；通用剧本仍走 `sd-script-engine`，资产仍走 `sd-asset-engine`，分镜仍走 `sd-storyboard-engine`，视频提示词仍走 `sd-feed-engine`，质检仍走 `sd-qc-engine`。现代扩展不复制、不覆盖这些模块的既有权威规则。
